@@ -15,7 +15,7 @@ class ApplicationWebSocketService {
   }
 
   private connect() {
-    const wsUrl = `${process.env.REACT_APP_WS_URL || 'ws://localhost:8080'}/applications`;
+    const wsUrl = `${import.meta.env.VITE_WS_URL || 'ws://localhost:8080'}/applications`;
     this.ws = new WebSocket(wsUrl);
 
     this.ws.onopen = () => {
@@ -96,4 +96,4 @@ export const useWebSocket = () => {
   }, []);
 
   return { lastMessage };
-}; 
+};
